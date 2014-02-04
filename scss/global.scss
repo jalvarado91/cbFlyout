@@ -1,0 +1,428 @@
+@import url(http://necolas.github.io/normalize.css/3.0.0/normalize.css);
+
+/* cbFlyNav Req Styles */
+
+
+body {
+  /* These styles don't have to be on body,
+     they could be on an element that wraps around
+     the left-flyout-nav and the content. 
+     This is to prevent a problem on Chrome that
+     leaves the width of the container with the 
+     added width of the flyout nav even after it's been
+     hidden. */
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.layout-left-flyout {
+  height: 100%;
+  position: fixed;
+  visibility: hidden;
+  z-index: 0;
+  transition: visibility 0 linear .2s;
+  background: #383838;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+}
+.layout-left-flyout.isCbFlyNavActive {
+  visibility: visible;
+  transition: z-index 0 linear .2s;
+  z-index: 1;
+}
+
+.cbFlyNav-wrap {
+  display: block;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  width: 270px;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  > nav {
+    transform: translateY(0);
+    transition: transform 0 ease-in-out;
+/*    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;*/
+  }
+}
+
+.nav-collapse {
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform-style: preserve-3d;
+}
+
+.layout-right-content {
+  transition: transform .2s ease-in-out;
+  transform: translate3d(0,0,0);
+  -webkit-perspective: 1000;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  z-index: 1;
+  /* NOTE! Put container bg here so you don't
+     get any clipping when the content is 
+     transitioning. Any tips on alternate 
+     solutions are welcome.
+  */
+  background: #fff;
+  background: #E72534;
+}
+.layout-right-content.isCbFlyNavActive {
+  transform: translate3d(270px,0,0);
+  min-width: 320px;
+}
+
+.icon-cbmore {
+  content: "";
+  float: right;
+  margin-top: 4.5px;
+  padding: 4.5px;
+  box-shadow: 1px -1px 0 0px #FFF inset;
+  -webkit-transform: rotate(225deg);
+}
+
+.nav-flyout-navmask, .nav-flyout-contentmask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.nav-flyout-contentmask {
+  z-index: 1;
+}
+.nav-flyout-navmask {
+  right: 180px;
+  z-index: 1;
+}
+/* Menu Toggle */
+
+.btn-navbar {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  padding: 4px 0;
+  display: block;
+  z-index: 1;
+}
+.btn-navbar-navtoggle {
+  left: 10px;
+}
+.btn-navbar .icon-bar {
+  display: block;
+  width: 28px;
+  height: 4px;
+  background-color: #4d4d4d;
+  margin: 7px auto 0 auto;
+}
+.btn-navbar .icon-bar+.icon-bar {
+  margin-top: 3px;
+}
+@media screen and (min-width: 768px) {
+  .btn-navbar {
+    display: none;
+  }
+}
+
+/* Navbar Styles */
+.navbar {
+  height: 40px;
+  margin: 0;
+  padding: 5px 0;
+  position: relative;
+  background: #fafafa;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 0 10px;
+  font-family: "Lato", sans-serif;
+  box-shadow: 0 1px 1px 0px #dddddd;
+  
+}
+@media screen and (max-width: 767px) {
+  .navbar .nav-collapse {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    height: auto;
+    position: relative;
+    background: #fafafa;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 0 10px;
+    
+  }
+}
+
+/* Mobile First Nav */
+.the-nav {
+  ul.nav-flyout {
+    display: block;
+    margin-bottom: 15px;
+    float: none;
+    height: 100%;
+    > li {
+      float: none;
+      display: block;
+      width: 270px;
+    }
+    li {
+      a {
+        color: #FFF;
+        display: block;
+        text-decoration: none;
+        padding: 11px 15px;
+        margin-right: 0;
+        &:hover {
+          background: #ff8358;
+        }
+      }
+    }
+    .dropdown {
+      position: static;
+      .subnav {
+        float: none;
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        left: auto;
+        width: 0;
+        min-width: 0;
+        margin: 0;
+        list-style: none;
+        z-index: 1000;
+        background: #595959;
+        transition: width .2s ease-in-out;
+        >li {
+            width: 180px;
+        }
+        &.is-subnav-visible {
+          width: 180px;
+        }
+      }
+    }
+  }
+  &.is-inactive ul.nav-flyout{
+    > li {
+      > a {
+        opacity: .2;
+      }
+      &.is-active > a {
+        opacity: 1;
+        background: #ff8358;
+      }
+    }
+  }
+}
+
+/* Large Screen Styles*/ 
+@media screen and (min-width: 768px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .the-nav{
+    display: block;
+  }
+  .the-nav .nav{
+    display: block;
+  }
+  .the-nav .nav-pill:after {
+    content: "";
+    display: table;
+    clear: both;
+  } 
+  .the-nav > .nav {
+    margin: 0;
+    line-height: normal;
+  }
+  .the-nav > .nav > li{
+    display: inline-block;
+    margin-bottom: 0;
+    position: relative;
+  }
+  .the-nav > .nav > li .caret {
+    margin-top: 8px;
+    margin-left: 2px;
+    border-top-color: #A7A7A7;
+    border-bottom-color: #A7A7A7;
+  }
+  .the-nav > .nav > li a{
+    display: block;
+    padding: 10px 10px 10px;
+    color: #A7A7A7;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .the-nav > .nav > li:nth-of-type(1) > a{
+    padding-left: 0;
+  }
+  .the-nav > .nav > li:last-of-type > a{
+    padding-right: 0;
+  }
+
+  /* Active State */ 
+  .the-nav > .nav > li:hover > a {
+    color: #303030;
+  }
+  .the-nav > .nav > li:hover .subnav {
+    display: block;
+  }
+
+  .the-nav > .nav > li:hover .caret {
+    border-top-color: #303030;
+    border-bottom-color: #303030;
+  }
+
+  /* Subnav */ 
+
+  .nav > li > .subnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    margin: 0;
+    padding: 0;
+    min-width: 160px;
+    background: #F7F7F7;
+    box-shadow: 0 1px 1px 0px #DDDDDD;
+  }
+  .nav > li > .subnav > li{
+    margin-bottom: 0;
+
+  }
+  .nav > li > .subnav > li a{
+    color: #A7A7A7;
+    transition: all .2s;
+  }
+  .nav > li > .subnav > li:hover a{
+    background: #ff8358;
+    color: white;
+  }
+}
+
+/* General Mobile First Styles */ 
+
+.hidden-sm {
+  display: none;  
+}
+@media screen and (min-width: 768px) {
+  .visible-sm {
+    display: none;
+  }
+  .hidden-sm {
+    display: block;  
+  }
+}
+
+/* Resets and clean ups and extras */
+
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
+body {
+  background: #E72534;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    margin: 0;
+  }
+}
+
+.pull-left {float: left;}
+.pull-right {float: right;}
+
+
+.dropdown .caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid gray;
+  content: "";
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear:both;
+}
+
+.container {
+  font-family: 'Lato', Sans-serif;
+  width: 95%;
+  margin: 0 auto;
+  &.navbar {
+    width: 100%;
+  }
+
+  &:before, &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+h1 {
+  font-size: 3.7em;
+  font-weight: 200;
+  margin-top: .2em;
+}
+p {
+  font-size: 1em;
+  line-height: 1.4em;
+  font-weight: 400;
+}
+.align-center {
+  text-align: center;
+}
+pre {
+  background: #ffdede;
+  color: #cccccc;
+  overflow: auto;
+  
+  overflow: auto;
+  background: #1D1F21;
+  padding: 0;
+  font-family: monospace;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -ms-word-break: normal;
+  word-break: normal;
+  word-break: normal;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  position: relative;
+  
+  code {
+    background: none;
+    padding: 15px;
+    white-space: pre;
+    overflow: auto;
+    display: block;
+  }
+}
+.layout-right-content {
+  
+  color: #ffdede;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);

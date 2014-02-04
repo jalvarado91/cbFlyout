@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="cbFlyout Plugin">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>cbFlyout Responsive Nav jQuery Plugin</title>
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="author" href="humans.txt">
+    </head>
+    <body>
+        <div id="left-flyout-nav" class="layout-left-flyout visible-sm"></div>
+		<div class="layout-right-content">
+		  <header class="the-header">
+		    <div class="navbar container">
+		      
+		      <!-- Trigger -->
+		      <a class="btn-navbar btn-navbar-navtoggle btn-flyout-trigger" href="#">
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		      </a>
+		      
+		      <!-- Structure -->
+		      <nav class="the-nav nav-collapse clearfix">
+		        <ul class="nav nav-pill pull-left">
+		          <li class="dropdown">
+		            <a href="#">Dogs <b class="caret"></b></a>
+		            <ul class="subnav">
+		              <li><a href="#">Terrier</a></li>
+		              <li><a href="#">Labrador</a></li>
+		              <li><a href="#">Pitbull</a></li>
+		              <li><a href="#">German Shephard</a></li>
+		              <li><a href="#">Chihuahua</a></li>
+		              <li><a href="#">Beagle</a></li>
+		            </ul>
+		          </li>
+		          <li class="dropdown">
+		            <a href="#">Cats  <b class="caret"></b></a>
+		            <ul class="subnav">
+		              <li><a href="#">Persian</a></li>
+		              <li><a href="#">Siamese</a></li>
+		              <li><a href="#">Ragdoll</a></li>
+		              <li><a href="#">Lion</a></li>
+		              <li><a href="#">Tiger</a></li>
+		            </ul>
+		          </li>
+		          <li class="dropdown">
+		            <a href="#">Primates  <b class="caret"></b></a>
+		            <ul class="subnav">
+		              <li><a href="#">Monkey</a></li>
+		              <li><a href="#">Lemur</a></li>
+		              <li><a href="#">Gorilla</a></li>
+		              <li><a href="#">Chimpanzee</a></li>
+		            </ul>
+		          </li>
+		          <li class="dropdown">
+		            <a href="#">Reptiles  <b class="caret"></b></a>
+		            <ul class="subnav">
+		              <li><a href="#">Boa</a></li>
+		              <li><a href="#">Monitor Lizard</a></li>
+		              <li><a href="#">Comodo Dragon</a></li>
+		              <li><a href="#">Iguana</a></li>
+		              <li><a href="#">Alligator</a></li>
+		            </ul>
+		          </li>
+		        </ul>
+		        <ul class="nav nav-pill pull-right">
+		          <li><a href="#">Congress </a></li>
+		          <li><a href="#">Blog </a></li>
+		          <li><a href="#">Contact Us </a></li>
+		        </ul>
+		      </nav>
+		    </div>
+		  </header>
+		  
+		  <main class="container">
+		    <h1>Responsive Off Screen Navigation jQuery Plugin</h1>
+		    
+		    <p>Effective Responsive navigation patterns are so hard to find nowdays. There are so many of them. They look promising, but a lot of the time when you get into actually beggining to use one, it bites you in the behind.</p>
+		    
+		    <p>I've gone ahead and made a nice jQuery plugin to give people more options. I could sit here and try to describe with words what it does but this is a demo, and you're already here, so just go ahead and play with it.</p>
+		    
+		    <h3 class="align-center">&rarr; RESIZE THE SCREEN! &larr;</h3>
+		    
+		    Markup structure is limited as of now (will-change in the future if demand is high)
+    <pre><code>
+&lt;div class=&quot;layout-left-flyout visible-sm&quot;&gt;&lt;/div&gt;<br/>&lt;div class=&quot;layout-right-content&quot;&gt;<br/>  &lt;header class=&quot;the-header&quot;&gt;<br/>    &lt;div class=&quot;navbar container&quot;&gt;<br/><br/>      &lt;!-- Trigger --&gt;<br/>      &lt;a class=&quot;btn-navbar btn-navbar-navtoggle btn-flyout-trigger&quot; href=&quot;#&quot;&gt;<br/>        &lt;span class=&quot;icon-bar btn-flyout-trigger&quot;&gt;&lt;/span&gt;<br/>        &lt;span class=&quot;icon-bar btn-flyout-trigger&quot;&gt;&lt;/span&gt;<br/>        &lt;span class=&quot;icon-bar btn-flyout-trigger&quot;&gt;&lt;/span&gt;<br/>      &lt;/a&gt;<br/><br/>      &lt;!-- Structure --&gt;<br/>      &lt;nav class=&quot;the-nav nav-collapse clearfix&quot;&gt;<br/>        &lt;ul class=&quot;nav nav-pill pull-left&quot;&gt;<br/>          &lt;li class=&quot;dropdown&quot;&gt;<br/>            &lt;a href=&quot;#&quot;&gt;Dogs &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;&lt;/a&gt;<br/>            &lt;ul class=&quot;subnav&quot;&gt;<br/>              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Terrier&lt;/a&gt;&lt;/li&gt;<br/>              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Labrador&lt;/a&gt;&lt;/li&gt;<br/>              ...<br/>            &lt;/ul&gt;<br/>          &lt;/li&gt;<br/>          &lt;li class=&quot;dropdown&quot;&gt;<br/>            &lt;a href=&quot;#&quot;&gt;Cats  &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;&lt;/a&gt;<br/>            &lt;ul class=&quot;subnav&quot;&gt;<br/>              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Persian&lt;/a&gt;&lt;/li&gt;<br/>              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Siamese&lt;/a&gt;&lt;/li&gt;<br/>              ...<br/>            &lt;/ul&gt;<br/>          &lt;/li&gt;<br/>          &lt;li class=&quot;dropdown&quot;&gt;<br/>            &lt;a href=&quot;#&quot;&gt;Primates  &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;&lt;/a&gt;<br/>            &lt;ul class=&quot;subnav&quot;&gt;<br/>              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Monkey&lt;/a&gt;&lt;/li&gt;<br/>              ...<br/>            &lt;/ul&gt;<br/>          &lt;/li&gt;<br/>        &lt;/ul&gt;<br/>        &lt;ul class=&quot;nav nav-pill pull-right&quot;&gt;<br/>          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Congress &lt;/a&gt;&lt;/li&gt;<br/>          ...<br/>        &lt;/ul&gt;<br/>      &lt;/nav&gt;<br/>    &lt;/div&gt;<br/>  &lt;/header&gt;<br/>  &lt;main class=&quot;container&quot;&gt;<br/>    ...<br/>  &lt;/main&gt;<br/>&lt;/div&gt;&lt;!-- END .layout-left-flyout --&gt;
+  </code></pre>    
+
+    <br />
+And the JavaScript
+<pre><code>$('.the-nav').cbFlyout();
+</code></pre>
+		    
+		    <p>As of now the code might still be messy. I'll dump it on github and if people submit issues I'll try to keep it updated. For now you can just copy the layout on this pen.</p>
+
+		  </main>
+		</div><!-- END .layout-left-flyout -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/jquery.cbFlyout.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
