@@ -589,7 +589,8 @@ body {
     padding: 0 10px;
   }
 }
-/* Mobile First Nav */
+
+/* Mobile First Nav Styles */
 .the-nav ul.nav-flyout {
   display: block;
   margin-bottom: 15px;

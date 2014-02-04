@@ -86,7 +86,7 @@
         
         if ($subnav.length > 0) {
           //item with subnav clicked
-          
+          e.preventDefault();
           //console.log("Item with subnav clicked");
 
           $subnav.css('height', window.innerHeight);
