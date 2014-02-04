@@ -40,7 +40,7 @@
 		},
     
     _initEvents : function() {
-      var self = this; 
+      var self = this;
       
       self.$trigger.on('click.cbFlyNav', function(e) {
         e.stopPropagation();
@@ -102,13 +102,13 @@
     
     _copyNav : function() {
       var self = this;
-      console.log("copying nav");
+      //console.log("copying nav");
       
       var newWrap = $('<div class="cbFlyNav-wrap"></div>');
       self.$newMenus.children( 'ul.nav.nav-pill' ).each(function() {
         $this = $(this);
         $this.removeClass('nav-pill').addClass('nav-flyout');
-        $this.find('.caret').replaceWith('<i class="icon-cbmore"></i>')
+        $this.find('.caret').replaceWith('<i class="icon-cbmore"></i>');
       });
             
       $(self.options.cbNavWrapper).prepend(self.$cbWrap.prepend(self.$newMenus));
@@ -124,7 +124,7 @@
     
     _openNav : function() {
       var self = this;
-      console.log("Opening Nav");
+      //console.log("Opening Nav");
         
       $(self.options.cbNavWrapper).addClass('isCbFlyNavActive');
       $(self.options.cbContentWrapper)
@@ -142,7 +142,7 @@
     
     _closeNav : function() {
       var self = this;
-      console.log("Closing Nav");
+      //console.log("Closing Nav");
       
       $(self.options.cbNavWrapper).removeClass('isCbFlyNavActive');
       $(self.options.cbContentWrapper).removeClass('isCbFlyNavActive');
@@ -201,6 +201,6 @@
     });
     
     return this;
-  }
+  };
   
 }(jQuery, window, document));
