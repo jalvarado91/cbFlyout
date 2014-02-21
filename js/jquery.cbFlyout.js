@@ -3,15 +3,16 @@
   $body = $( 'body' );
   
   $.cbFlyNav = function( options, element ) {
-		this.$el = $( element );
-		this._init( options );
-	};
+    this.$el = $( element );
+    this._init( options );
+  };
  
   $.cbFlyNav.defaults = {
     trigger: '.btn-flyout-trigger'
     ,cbNavWrapper: '#left-flyout-nav'
     ,cbContentWrapper: '.layout-right-content'
-	};
+    ,minWidth: 768
+  };
   
   $.cbFlyNav.prototype = {
   
@@ -26,7 +27,7 @@
     },
     
     _config : function() {
-			this.open = false;
+      this.open = false;
       this.copied = false;
       this.subNavOpen = false;
       this.wasOpened = false;
@@ -37,7 +38,7 @@
       this.$contentMask = $('<a class="nav-flyout-contentmask" href="#"></a>');
       this.$navMask = $('<a class="nav-flyout-navmask" href="#"></a>');
       this.$openSubnav = "";
-		},
+    },
     
     _initEvents : function() {
       var self = this;
@@ -59,6 +60,14 @@
         //console.log('WasOpened: '+self.wasOpened+ '. Open? '+self.open);
       });
       
+      //Hide menu when window is bigger than allowed minWidth
+      $(window).on('resize', function() {
+        var windowWidth = $(window).width();
+        if(self.open && windowWidth > self.options.minWidth){
+          self._closeNav();
+        }
+      });
+
       //Hide menu when body clicked. Usign an a tag to mask content.
       self.$contentMask.on('click.cbFlyNav', function( e ) {
         e.preventDefault();
@@ -190,7 +199,7 @@
   
   
   $.fn.cbFlyout = function ( options ) {
-    this.each(function() {	
+    this.each(function() {  
       var instance = $.data( this, 'cbFlyout' );
       if ( instance ) {
         instance._init();
