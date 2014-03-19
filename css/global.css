@@ -424,21 +424,17 @@ th {
 
 
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-
-
 /* cbFlyNav Req Styles */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 body {
   /* These styles don't have to be on body,
-  they could be on an element that wraps around
-  the left-flyout-nav and the content.
-  This is to prevent a problem on Chrome that
-  leaves the width of the container with the
-  added width of the flyout nav even after it's been
-  hidden. */
-position: relative;
-
-  -ms-overflow-x: hidden;
+     they could be on an element that wraps around
+     the left-flyout-nav and the content. 
+     This is to prevent a problem on Chrome that
+     leaves the width of the container with the 
+     added width of the flyout nav even after it's been
+     hidden. */
+  position: relative;
   overflow-x: hidden;
   width: 100%;
 }
@@ -448,31 +444,31 @@ position: relative;
   position: fixed;
   visibility: hidden;
   z-index: 0;
-
-  -webkit-transition: visibility 0 linear .2s;
-  -moz-transition: visibility 0 linear .2s;
-  -o-transition: visibility 0 linear .2s;
-  -ms-transition: visibility 0 linear .2s;
-  transition: visibility 0 linear .2s;
+  -moz-transition: visibility 0 linear 0.2s;
+  -o-transition: visibility 0 linear 0.2s;
+  -webkit-transition: visibility 0 linear;
+  -webkit-transition-delay: 0.2s;
+  transition: visibility 0 linear 0.2s;
   background: #383838;
-  -webkit-perspective: 1000;
+  -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-
-  -webkit-transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -moz-perspective: 1000;
+  -webkit-perspective: 1000;
+  perspective: 1000;
   -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
 .layout-left-flyout.isCbFlyNavActive {
   visibility: visible;
-
-  -webkit-transition: z-index 0 linear .2s;
-  -moz-transition: z-index 0 linear .2s;
-  -o-transition: z-index 0 linear .2s;
-  -ms-transition: z-index 0 linear .2s;
-  transition: z-index 0 linear .2s;
   z-index: 1;
+  -moz-transition: z-index 0 linear 0.2s;
+  -o-transition: z-index 0 linear 0.2s;
+  -webkit-transition: z-index 0 linear;
+  -webkit-transition-delay: 0.2s;
+  transition: z-index 0 linear 0.2s;
 }
 
 .cbFlyNav-wrap {
@@ -481,83 +477,70 @@ position: relative;
   height: 100%;
   overflow: hidden;
   width: 270px;
-  -webkit-perspective: 1000;
+  -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-
-  -webkit-transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -moz-perspective: 1000;
+  -webkit-perspective: 1000;
+  perspective: 1000;
   -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-
 .cbFlyNav-wrap > nav {
-  -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
-  -o-transform: translateY(0);
   -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  -webkit-transform: translateY(0);
   transform: translateY(0);
-
+  -moz-transition: -moz-transform 0 ease-in-out;
+  -o-transition: -o-transform 0 ease-in-out;
   -webkit-transition: -webkit-transform 0 ease-in-out;
-  -webkit-transition: -webkit-transform 0 ease-in-out;
-  -webkit-transition: -webkit-transform 0 ease-in-out;
-  -webkit-transition: -webkit-transform 0 ease-in-out;
-  transition: transform 0 ease-in-out; /*    height:  100%;
-  
-
--ms-overflow-y:  auto;
-  
-overflow-y:  auto;
-  
-
-  */
+  transition: transform 0 ease-in-out;
+  /*    height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;*/
 }
 
 .nav-collapse {
-  -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-
-  -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
 .layout-right-content {
-  -webkit-transition: -webkit-transform .2s ease-in-out;
-  -webkit-transition: -webkit-transform .2s ease-in-out;
-  -webkit-transition: -webkit-transform .2s ease-in-out;
-  -webkit-transition: -webkit-transform .2s ease-in-out;
-  transition: transform .2s ease-in-out;
-
-  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transition: -moz-transform 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   -moz-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  -moz-perspective: 1000;
   -webkit-perspective: 1000;
-
-  -webkit-transform-style: preserve-3d;
+  perspective: 1000;
   -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  z-index: 1; /* NOTE! Put container bg here so you don't
-  get any clipping when the content is
-  transitioning. Any tips on alternate
-  solutions are welcome.
-   */
-background: #fff;
+  backface-visibility: hidden;
+  z-index: 1;
+  /* NOTE! Put container bg here so you don't
+     get any clipping when the content is 
+     transitioning. Any tips on alternate 
+     solutions are welcome.
+  */
+  background: #fff;
   background: #E72534;
 }
 
 .layout-right-content.isCbFlyNavActive {
-  -webkit-transform: translate3d(270px, 0, 0);
   -moz-transform: translate3d(270px, 0, 0);
-  -o-transform: translate3d(270px, 0, 0);
-  -ms-transform: translate3d(270px, 0, 0);
+  -webkit-transform: translate3d(270px, 0, 0);
   transform: translate3d(270px, 0, 0);
   min-width: 320px;
 }
@@ -567,18 +550,15 @@ background: #fff;
   float: right;
   margin-top: 4.5px;
   padding: 4.5px;
-
-  -webkit-box-shadow: 1px -1px 0 0px #FFF inset;
   box-shadow: 1px -1px 0 0px #FFF inset;
-
-  -webkit-transform: rotate(225deg);
   -moz-transform: rotate(225deg);
-  -o-transform: rotate(225deg);
   -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
   transform: rotate(225deg);
 }
 
-.nav-flyout-navmask,.nav-flyout-contentmask {
+.nav-flyout-navmask, .nav-flyout-contentmask {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -594,7 +574,6 @@ background: #fff;
   right: 180px;
   z-index: 1;
 }
-
 
 /* Menu Toggle */
 .btn-navbar {
@@ -656,8 +635,7 @@ background: #fff;
     padding: 0 10px;
   }
 }
-
-/* Mobile First Nav Styles */
+/* Mobile First Nav */
 .the-nav ul.nav-flyout {
   display: block;
   margin-bottom: 15px;
@@ -800,7 +778,10 @@ background: #fff;
 
   .nav > li > .subnav > li a {
     color: #A7A7A7;
-    transition: all .2s;
+    -moz-transition: all, 0.2s;
+    -o-transition: all, 0.2s;
+    -webkit-transition: all, 0.2s;
+    transition: all, 0.2s;
   }
 
   .nav > li > .subnav > li:hover a {
@@ -824,8 +805,8 @@ background: #fff;
 }
 /* Resets and clean ups and extras */
 *, *:before, *:after {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -893,12 +874,30 @@ p {
   font-weight: 400;
 }
 
+a.gh-btn {
+  display: inline-block;
+  width: 250px;
+  background: white;
+  color: #1D1F21;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 25px;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+a.gh-btn:hover {
+  background: #e6e6e6;
+}
+
 .align-center {
   text-align: center;
 }
 
 pre {
-  background: #ffdede;
   color: #cccccc;
   overflow: auto;
   overflow: auto;
@@ -928,5 +927,6 @@ pre code {
 .layout-right-content {
   color: #ffdede;
 }
+
 
 

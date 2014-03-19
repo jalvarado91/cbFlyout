@@ -21,16 +21,16 @@ body {
   position: fixed;
   visibility: hidden;
   z-index: 0;
-  transition: visibility 0 linear .2s;
+  @include transition(visibility 0 linear .2s);
   background: #383838;
-  -webkit-perspective: 1000;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
+  @include backface-visibility( hidden );
+  @include perspective(1000);
+  @include transform-style(preserve-3d);
 }
 .layout-left-flyout.isCbFlyNavActive {
   visibility: visible;
-  transition: z-index 0 linear .2s;
   z-index: 1;
+  @include transition(z-index 0 linear .2s);
 }
 
 .cbFlyNav-wrap {
@@ -39,12 +39,12 @@ body {
   height: 100%;
   overflow: hidden;
   width: 270px;
-  -webkit-perspective: 1000;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
+  @include backface-visibility( hidden );
+  @include perspective(1000);
+  @include transform-style(preserve-3d);
   > nav {
-    transform: translateY(0);
-    transition: transform 0 ease-in-out;
+    @include translateY(0);
+    @include transition(transform 0 ease-in-out);
 /*    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;*/
@@ -52,16 +52,16 @@ body {
 }
 
 .nav-collapse {
-  -webkit-transform: translate3d(0,0,0);
-  -webkit-transform-style: preserve-3d;
+  @include translate3d(0,0,0);
+  @include transform-style(preserve-3d);
 }
 
 .layout-right-content {
-  transition: transform .2s ease-in-out;
-  transform: translate3d(0,0,0);
-  -webkit-perspective: 1000;
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
+  @include transition(transform .2s ease-in-out);
+  @include translate3d(0,0,0);
+  @include perspective(1000);
+  @include transform-style(preserve-3d);
+  @include backface-visibility( hidden );
   z-index: 1;
   /* NOTE! Put container bg here so you don't
      get any clipping when the content is 
@@ -72,7 +72,7 @@ body {
   background: #E72534;
 }
 .layout-right-content.isCbFlyNavActive {
-  transform: translate3d(270px,0,0);
+  @include translate3d(270px, 0, 0);
   min-width: 320px;
 }
 
@@ -82,7 +82,7 @@ body {
   margin-top: 4.5px;
   padding: 4.5px;
   box-shadow: 1px -1px 0 0px #FFF inset;
-  -webkit-transform: rotate(225deg);
+  @include rotate(225deg);
 }
 
 .nav-flyout-navmask, .nav-flyout-contentmask {
@@ -301,7 +301,7 @@ body {
   }
   .nav > li > .subnav > li a{
     color: #A7A7A7;
-    transition: all .2s;
+    @include transition(all, .2s);
   }
   .nav > li > .subnav > li:hover a{
     background: #ff8358;
@@ -388,11 +388,25 @@ p {
   line-height: 1.4em;
   font-weight: 400;
 }
+a.gh-btn {
+  display: inline-block;
+  width:250px;
+  background: white;
+  color: #1D1F21;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 25px;
+  @include transition(all .2s ease-in-out);
+  &:hover {
+    background: #e6e6e6;
+  }
+}
 .align-center {
   text-align: center;
 }
 pre {
-  background: #ffdede;
   color: #cccccc;
   overflow: auto;
   
@@ -424,5 +438,6 @@ pre {
   
   color: #ffdede;
 }
+
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
